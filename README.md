@@ -1,5 +1,6 @@
 ## Docker-2-Docker-Communication
-## The Task is to create two docker container and make them able to communicate with each other.
+## Task 1 - Create two docker container and make them able to communicate with each other.
+## Task 2 - Create two docker container, one of which should be of mongod and the application should connected to the mongoDB container
 
 ### Step 1 - Installation of Docker 
 
