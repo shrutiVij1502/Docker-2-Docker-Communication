@@ -2,6 +2,8 @@
 ## Task 1 - Create two docker container and make them able to communicate with each other.
 ## Task 2 - Create two docker container, one of which should be of mongoDB and the application should connected to the mongoDB container.
 
+
+
 # TASK 1 
 ## Create two docker container and make them able to communicate with each other.
 
@@ -109,6 +111,59 @@ echo "MongoDB is successfully connected to the PHP container";
 
 Test is using - http://localhost:8020/mongo.php
 ```
+
+### ADD-ON Task 
+
+TASK LAUNCH THREE CONTAINER SUCH THAT THE CONNECTIVITY BETWEEN THEM SHOULD BE LIKE THIS -
+
+A -> B and C
+
+B -> D
+
+C -> D
+ 
+Solution - Containers in different networks can not communicate with each other 
+If we connect all the four networks on the same network, then A also will be able to connect with the D , but this should not be happen
+ 
+So, we will create one new network such that we get the connectivity as the way we want to be done -  
+ 
+```
+shruti-network
+A
+B
+C
+```
+```
+shruti-network2
+B
+C
+D
+```
+
+A -> B and C only 
+
+<img width="452" alt="image" src="https://user-images.githubusercontent.com/67600604/200308516-22418902-a73f-4a19-a565-697de2d28aaf.png">
+
+So that A and D would be on different network and they cannot communicate with other.
+ 
+B -> D
+
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/67600604/200308730-bc462a40-e1d4-4c28-8e82-601e814f19a9.png">
+ 
+C -> D
+
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/67600604/200308914-b7bf1aae-8159-4e6f-a189-ad558adddcde.png">
+
+Note - To check the networks - ```docker network ls```
+
+to create new network - ```docker network create shruti-network2```
+
+And, if you want to inspect that which containers are connected to your network - ```docker network inspect shruti-network2```
+
+<img width="638" alt="image" src="https://user-images.githubusercontent.com/67600604/200309536-e23034a5-77ef-4807-a3ed-21ddf1304ef3.png">
+
+
+
 
 
 
