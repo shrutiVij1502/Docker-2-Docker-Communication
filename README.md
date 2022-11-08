@@ -139,6 +139,9 @@ B
 C
 D
 ```
+Note - 
+
+To disconnect a container from existing network - ``` docker network disconnect shruti-network container-name- ```
 
 A -> B and C only 
 
